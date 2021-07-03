@@ -2,9 +2,9 @@ from grid import Grid
 from random import choice
 import os
 
-maps = ['01', '02', '03', '04', '05', '05']
-grid = choice(maps)
-grid = f"grid{grid}.txt"
+grids = os.listdir("../datas/")
+grid = choice(grids)
+
 g = Grid.from_file(f"../datas/{grid}")
 
 def repl_play(g):
@@ -12,7 +12,7 @@ def repl_play(g):
 	resolved = False
 	direction = ['N', 'S', 'E', 'O']
 	while not resolved:
-		print(g.__str__())
+		print(g)
 		entry = input("Entrez 'num,direction' pour faire mouvement : ou q(quit) ")
 		if len(entry) == 1 and entry == 'q':
 			print('Vous avez choisis de quitter le jeu')
